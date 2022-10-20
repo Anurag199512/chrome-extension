@@ -21,7 +21,8 @@ app.post('/fetch-product-data', async (req, res) => {
     return res.send('Bad request, missing product name')
   }
 
-  const url = `https://www.amazon.com/s?k=toy&crid=20W68DKSOHNQS&sprefix=${productName}%2Caps%2C271&ref=nb_sb_noss_1`
+  const url = `https://www.amazon.com/s?k=${productName}&crid=1DEBLRALQFBMR&sprefix=television%2Caps%2C294&ref=nb_sb_noss_2`
+
   const response = await axios.get(url)
 
   return res.send(response.data)

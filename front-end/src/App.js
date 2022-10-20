@@ -28,20 +28,17 @@ function App() {
       const html = res.data;
   
       const $ = cheerio.load(html);
-  
-      const numericValues = [];
-      const fractionalValues = [];
-  
-      $('div.sg-col-4-of-12.s-result-item.s-asin.sg-col-4-of-16.sg-col.sg-col-4-of-20').each((_idx, el) => {
-      const shelf = $(el)
-      const numericPart = Number(shelf.find('span.a-price-whole').text())
-      const fractionPart = Number(shelf.find('span.a-price-fraction').text())
-  
-      total = total + numericPart + fractionPart;
-      totalCount = totalCount + 1;
+      $('div.a-row.a-size-base.a-color-base').each((_idx, el) => {
+        const shelf = $(el)
+        const numericPart = shelf.find('span.a-price-whole').text() ?? 0
+        const fractionPart = shelf.find('span.a-price-fraction').text() ?? 0
+    
+        console.log('p', numericPart, fractionPart, total)
 
-      numericValues.push(numericPart);
-      fractionalValues.push(fractionalValues);
+        if (numericPart > 0 || fractionPart > 0) {
+          total = total + Number(numericPart) + Number(fractionPart);
+          totalCount = totalCount + 1;  
+        }
       })
   
       setAveragePrice((total / totalCount).toFixed(2));

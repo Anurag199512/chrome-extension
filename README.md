@@ -10,3 +10,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 3. Run the command `npm run zip` top generate the build folder. Use the generated build folder using option `load unpacked` inside chrome extensions to init the extension.
 
+### Sample test words
+
+1. games
+2. chocolate
+3. television
+4. toy
