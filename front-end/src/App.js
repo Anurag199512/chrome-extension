@@ -33,27 +33,27 @@ function App() {
         const numericPart = shelf.find('span.a-price-whole').text() ?? 0
         const fractionPart = shelf.find('span.a-price-fraction').text() ?? 0
     
-        console.log('p', numericPart, fractionPart, total)
-
-        if (numericPart > 0 || fractionPart > 0) {
+        if ((numericPart && numericPart > 0) || (fractionPart && fractionPart > 0)) {
           total = total + Number(numericPart) + Number(fractionPart);
           totalCount = totalCount + 1;  
         }
       })
   
       setAveragePrice((total / totalCount).toFixed(2));
+      console.log('Total', total, totalCount)
       managePopUp(true);
 
       // alert(`Average price of the product ${productName} is $${(total / totalCount).toFixed(2)}`)
     }).catch((e) => {
       console.log('Error', e)
+      alert('Error from server, please try again after some time.')
     })
   }
 
   return (
     <div className='App'>
       { showPopUp  ?
-        <Popup position="top right" open = {showPopUp}>
+        <Popup open = {showPopUp}>
           <div>Average price of the product <b>{productName}</b> is <b>${avgPrice}</b> </div>
         </Popup>
       : <p></p>
@@ -67,7 +67,7 @@ function App() {
           </div>
 
           <div class='col-auto'>
-            <button type='submit' class='btn btn-primary mb-2'>Submit</button>
+            <button type='submit' class='btn btn-primary mb-2'>Search</button>
           </div>
         </div>
       </form>

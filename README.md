@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 2. Run the command `npm run start-server` in project root directory to start the server.
 
-3. Run the command `npm run zip` top generate the build folder. Use the generated build folder using option `load unpacked` inside chrome extensions to init the extension.
+3. Run the command `npm run zip` from project's root dir to generate the build folder inside front-end. Use the generated build folder using option `load unpacked` inside chrome manage extensions feature to initialize the extension.
 
 ### Sample test words
 
