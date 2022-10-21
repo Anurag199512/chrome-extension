@@ -34,7 +34,9 @@ function App() {
         const fractionPart = shelf.find('span.a-price-fraction').text() ?? 0
     
         if ((numericPart && numericPart > 0) || (fractionPart && fractionPart > 0)) {
-          total = total + Number(numericPart) + Number(fractionPart);
+          // console.log('Product', total, numericPart, fractionPart, Number(numericPart + fractionPart))
+
+          total = total + Number(numericPart + fractionPart);
           totalCount = totalCount + 1;  
         }
       })
